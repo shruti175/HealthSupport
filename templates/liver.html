@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- stylesheets -->
+    <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+         crossorigin="anonymous"
+     />
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+     <!-- fontawesome -->
+     <script src="https://kit.fontawesome.com/b024a0525a.js" crossorigin="anonymous"></script>
+     <!-- bootstrap scripts -->
+     <script
+         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+         crossorigin="anonymous"
+     ></script>
+     <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+         crossorigin="anonymous"
+     ></script>
+     <!-- tab -->
+     <link rel="icon" type="image" href="../static/images/health-check.png">
+    <title>Health Support</title>
+</head>
+<body>
+    <header>
+       <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#" ><i class="fas fa-hand-holding-medical logo"></i>Health Support</a>
+            <button
+                        class="navbar-toggler custom-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    	<ul class="navbar-nav ml-auto">
+		    		<li class="nav-item">
+		    			<a class="nav-link" href="/home" >Home</a>
+		    		</li>
+			        <li class="nav-item">
+			          	<a class="nav-link" href="/heart" >Heart</a>
+			        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/liver" >Liver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kidney" >Kidney</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cancer" >Breast Cancer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diabetes" >Diabetes</a>
+                    </li>
+		    	</ul>
+		    </div>
+       </nav>
+    </header>
+    <section class="main">
+        <form class="form" method="post" action="/predict">
+            <img class="icon" src="../static/images/liver_icon.png">
+            <span class="h2">Liver Disease Prediction</span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label>Age</label><br>
+                        <input type="text" name="Age" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Total Bilirubin</label><br>
+                        <input type="text" name="Total_Bilirubin" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Direct Bilirubin</label><br>
+                        <input type="text" name="Direct_Bilirubin" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Alkaline Phosphotase</label><br>
+                        <input type="text" name="Alkaline_Phosphotase" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Alamine Aminotransferase</label><br>
+                        <input type="text" name="Alamine_Aminotransferase" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Aspartate Aminotransferase</label><br>
+                        <input type="text" name="Aspartate_Aminotransferase" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Total Proteins</label><br>
+                        <input type="text" name="Total_Protiens" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Albumin</label><br>
+                        <input type="text" name="Albumin" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Albumin & Globulin Ratio</label><br>
+                        <input type="text" name="Albumin_and_Globulin_Ratio" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Gender</label>
+                        <input type="radio" id="male" name="Gender" value="1">
+                        <span  class="name">Male</span>
+                        <input type="radio" id="female" name="Gender" value="0">
+                        <span class="name">Female</span><br>
+                    </div>
+                </div>
+            </div>
+            <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Predict">
+        </form>
+    </section>
+    <section class="footer">
+        <p style="color: #fff;">Copyright © 2021</p>
+    </section>
+</body>
+</html>

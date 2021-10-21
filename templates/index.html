@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- stylesheets -->
+	<link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+         crossorigin="anonymous"
+     />
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+     <!-- fontawesome -->
+     <script src="https://kit.fontawesome.com/b024a0525a.js" crossorigin="anonymous"></script>
+     <!-- bootstrap scripts -->
+     <script
+         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+         crossorigin="anonymous"
+     ></script>
+     <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+         crossorigin="anonymous"
+     ></script>
+     <!-- tab -->
+     <link rel="icon" type="image" href="../static/images/health-check.png">
+	<title>Health Support</title>
+</head>
+<body>
+    <header>
+	   <nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="#" ><i class="fas fa-hand-holding-medical logo"></i>Health Support</a>
+		    <button
+                        class="navbar-toggler custom-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    	<ul class="navbar-nav ml-auto">
+		    		<li class="nav-item">
+		    			<a class="nav-link" href="/home" >Home</a>
+		    		</li>
+			        <li class="nav-item">
+			          	<a class="nav-link" href="/heart" >Heart</a>
+			        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/liver" >Liver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kidney" >Kidney</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cancer" >Breast Cancer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diabetes" >Diabetes</a>
+                    </li>
+		    	</ul>
+		    </div>
+	   </nav>
+    </header>
+    <section class="main">
+        <div id="carousel" class="carousel slide h" data-ride="carousel" data-interval="5000" data-pause="hover">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h1 id="heading">Welcome To<br> Health Support</h1>
+                                <p><em>An application of Machine Learning to Predict disease.</em></p>
+                            </div>
+                            <div class="col-lg-6"><img id="header" src="../static/images/health-support.gif" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container about">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 id="about">About</h2>
+                                <p class="about-para">
+                                        This is a basic machine learning and deep learning based medical app.
+                                </p>
+                                <p class="about-para">
+                                        The prediction about the disease is made with the help of the machine learning model which itself is trained on the thousands of the datasets.
+                                </p>
+                                <h2>Application</h2>
+                                    <ul id="ul">
+                                        <li>To remove the dependencies on the doctors</li>
+                                        <li>To help out the poor and helpless people with the normal medical checkup</li>
+                                        <li>To extend the role of the technology in the medical field</li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <section id="disease">
+        <h2 style="color:#fff">--Disease Predicted--</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="disease-img" src="../static/images/heart.png"><br>
+                            <span class="disease-name">Heart Disease</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Symptoms</h3>
+                            <ul class="symptoms">
+                                <li>Fluttering in your chest.</li>
+                                <li>Racing heartbeat.</li>
+                                <li>Slow heartbeat (bradycardia)</li>
+                                <li>Chest pain or discomfort.</li>
+                                <li>Shortness of breath.</li>
+                            </ul>
+                            <form action="/heart"><input class="predict" type="submit" value="Predict"></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="disease-img" src="../static/images/liver.png"><br>
+                            <span class="disease-name">Liver Disease</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Symptoms</h3>
+                            <ul class="symptoms">
+                                <li>Abdominal pain and swelling.</li>
+                                <li>Itchy skin.</li>
+                                <li>Dark urine color.</li>
+                                <li>Chronic fatigue.</li>
+                                <li>Nausea or vomiting.</li>
+                            </ul>
+                            <form action="/liver"><input class="predict" type="submit" value="Predict"></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="disease-img" src="../static/images/kidney.png"><br>
+                            <span class="disease-name">Kidney Disease</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Symptoms</h3>
+                            <ul class="symptoms">
+                                <li>Weight loss and poor appetite.</li>
+                                <li>Swollen ankles, feet or hands – as a result of water retention</li>
+                                <li>Blood in your pee (urine)</li>
+                                <li>An increased need to pee – particularly at night.</li>
+                            </ul>
+                            <form action="/kidney"><input class="predict" type="submit" value="Predict"></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="disease-img" src="../static/images/cancer.png"><br>
+                            <span class="disease-name">Breast Cancer</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Symptoms</h3>
+                            <ul class="symptoms">
+                                <li>New lump in the breast.</li>
+                                <li>Thickening or swelling of part of the breast.</li>
+                                <li>Redness in the nipple area/breast.</li>
+                                <li>Pain in the nipple area.</li>
+                            </ul>
+                            <form action="/cancer"><input class="predict" type="submit" value="Predict"></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="disease-img" src="../static/images/diabetes.png"><br>
+                            <span class="disease-name">Diabetes</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Symptoms</h3>
+                            <ul class="symptoms">
+                                <li>Urinate a lot, often at night.</li>
+                                <li>Lose weight without trying.</li>
+                                <li>Blurry vision.</li>
+                                <li>Numb or tingling hands or feet.</li>
+                                <li>Sores that heal slowly.</li>
+                            </ul>
+                            <form action="/diabetes"><input class="predict" type="submit" value="Predict"></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footer">
+        <p>Copyright © 2021</p>
+    </section>
+</body>
+</html>

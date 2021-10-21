@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- stylesheets -->
+	<link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+         crossorigin="anonymous"
+     />
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+     <!-- fontawesome -->
+     <script src="https://kit.fontawesome.com/b024a0525a.js" crossorigin="anonymous"></script>
+     <!-- bootstrap scripts -->
+     <script
+         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+         crossorigin="anonymous"
+     ></script>
+     <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+         crossorigin="anonymous"
+     ></script>
+     <!-- tab -->
+     <link rel="icon" type="image" href="../static/images/health-check.png">
+	<title>Health Support</title>
+</head>
+<body>
+	<header>
+	   <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#" ><i class="fas fa-hand-holding-medical logo"></i>Health Support</a>
+            <button
+                        class="navbar-toggler custom-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    	<ul class="navbar-nav ml-auto">
+		    		<li class="nav-item">
+		    			<a class="nav-link" href="/home" >Home</a>
+		    		</li>
+			        <li class="nav-item">
+			          	<a class="nav-link" href="/heart" >Heart</a>
+			        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/liver" >Liver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kidney" >Kidney</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cancer" >Breast Cancer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diabetes" >Diabetes</a>
+                    </li>
+		    	</ul>
+		    </div>
+       </nav>
+    </header>
+    <section class="main">
+        <form class="form" method="post" action="/predict">
+            <img class="icon" src="../static/images/cancer_icon.png">
+            <span class="h2">Breast Cancer Prediction</span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 ">
+                        <label>Radius Mean</label><br>
+                        <input type="text" name="radius_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6 ">
+                        <label>Texture Mean</label><br>
+                        <input type="text" name="texture_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6 ">
+                        <label>Perimeter Mean</label><br>
+                        <input type="text" name="perimeter_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Area Mean</label><br>
+                        <input type="text" name="area_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Smoothness Mean</label><br>
+                        <input type="text" name="smoothness_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Compactness Mean</label><br>
+                        <input type="text" name="compactness_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concavity Mean</label><br>
+                        <input type="text" name="concavity_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concave Points Mean</label><br>
+                        <input type="text" name="concave_points_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Symmetry Mean</label><br>
+                        <input type="text" name="symmetry_mean" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Fractal Dimension Mean</label><br>
+                        <input type="text" name="fractal_dimension_mean" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <label>Radius SE</label><br>
+                        <input type="text" name="radius_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Texture SE</label><br>
+                        <input type="text" name="texture_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Perimeter SE</label><br>
+                        <input type="text" name="perimeter_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Area SE</label><br>
+                        <input type="text" name="area_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Smoothness SE</label><br>
+                        <input type="text" name="smoothness_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Compactness SE</label><br>
+                        <input type="text" name="compactness_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concavity SE</label><br>
+                        <input type="text" name="concavity_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concave Points SE</label><br>
+                        <input type="text" name="concave_points_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Symmetry SE</label><br>
+                        <input type="text" name="symmetry_se" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Fractal Dimension SE</label><br>
+                        <input type="text" name="fractal_dimension_se" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <label>Radius Worst</label><br>
+                        <input type="text" name="radius_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Texture Worst</label><br>
+                        <input type="text" name="texture_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Perimeter Worst</label><br>
+                        <input type="text" name="perimeter_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Area Worst</label><br>
+                        <input type="text" name="area_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Smoothness Worst</label><br>
+                        <input type="text" name="smoothness_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Compactness Worst</label><br>
+                        <input type="text" name="compactness_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concavity Worst</label><br>
+                        <input type="text" name="concavity_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Concave Points Worst</label><br>
+                        <input type="text" name="concave_points_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Symmetry Worst</label><br>
+                        <input type="text" name="symmetry_worst" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label>Fractal Dimension Worst</label><br>
+                        <input type="text" name="fractal_dimension_worst" required>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Predict">
+        </form>
+    </section>
+    <section class="footer">
+        <p style="color: #fff;">Copyright © 2021</p>
+    </section>
+</body>
+</html>
